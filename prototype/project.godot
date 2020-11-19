@@ -19,6 +19,10 @@ config/name="Prototype"
 run/main_scene="res://LevelSelection.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1324
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

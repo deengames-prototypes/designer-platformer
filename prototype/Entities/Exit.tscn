@@ -9,15 +9,15 @@ colors = PoolColorArray( 1, 1, 0.501961, 1, 1, 1, 1, 1 )
 gradient = SubResource( 1 )
 width = 40
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=3]
 max_value = 2.0
 _data = [ Vector2( 0, 2 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
+[sub_resource type="CurveTexture" id=4]
 width = 40
-curve = SubResource( 4 )
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 2
 emission_box_extents = Vector3( 20, 20, 1 )
 flag_disable_z = true
@@ -25,7 +25,7 @@ direction = Vector3( 0, 0, 0 )
 gravity = Vector3( 0, -98, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 5 )
+scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 
 [sub_resource type="RectangleShape2D" id=6]
@@ -44,7 +44,7 @@ __meta__ = {
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 20, 20 )
 amount = 100
-process_material = SubResource( 3 )
+process_material = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 20, 20 )

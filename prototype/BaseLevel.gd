@@ -3,6 +3,7 @@ extends Node2D
 const Exit = preload("res://Entities/Exit.gd")
 
 onready var _victory = $Victory/Control
+onready var _toolkit = $Toolkit/Control
 
 var _game_over:bool = false
 
@@ -10,7 +11,6 @@ func _ready() -> void:
 	for child in get_children():
 		if child is Exit:
 			child.connect("player_exited", self, "_on_player_exited")
-		# TODO: find player, note location, and respawn there if dies
 			
 func _on_player_exited(player:KinematicBody2D) -> void:
 	# prevent it from happening multiple times
