@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Fonts/Lato-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Images/DungeonTiles.png" type="Texture" id=2]
+[ext_resource path="res://UI/Toolkit.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 512, 300 )
+
+[node name="Toolkit" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Control"]
+margin_right = 300.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+margin_right = 300.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WallButton" type="Button" parent="Control/Panel/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 1 )
+text = "x0 walls"
+icon = ExtResource( 2 )
+align = 0
+
+[node name="PlacementOverlay" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementOverlay"]
+position = Vector2( 812, 300 )
+shape = SubResource( 2 )
+[connection signal="pressed" from="Control/Panel/VBoxContainer/WallButton" to="." method="_on_WallButton_pressed"]
+[connection signal="input_event" from="PlacementOverlay" to="." method="_on_PlacementOverlay_input_event"]
