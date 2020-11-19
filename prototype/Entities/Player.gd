@@ -7,6 +7,9 @@ export (int) var gravity = 1200
 var velocity = Vector2()
 var jumping = false
 
+func _ready():
+	add_to_group("Player")
+
 func get_input():
 	velocity.x = 0
 	var right = Input.is_action_pressed('ui_right')

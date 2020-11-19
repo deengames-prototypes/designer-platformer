@@ -1,5 +1,9 @@
 extends Node2D
 
+const CoreGame = preload("res://CoreGame.tscn")
 
 func _on_Level1_pressed():
-	get_tree().change_scene("res://Levels/Level1.tscn")
+	var game = CoreGame.instance()
+	game.load_level(1)
+	
+	get_tree().root.add_child(game)
